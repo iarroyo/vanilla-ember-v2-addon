@@ -1,0 +1,26 @@
+{
+  "name": "vanilla-ember-v2-addon",
+  "version": "0.0.0",
+  "private": true,
+  "repository": "",
+  "license": "MIT",
+  "author": "",
+  "scripts": {
+    "prepare": "npm run build",
+    "build": "npm run build --workspace vanilla-ember-v2-addon",
+    "start": "concurrently 'npm:start:*' --restart-after 5000 --prefix-colors cyan,white,yellow",
+    "start:tests": "npm start --workspace test-app",
+    "start:addon": "npm start --workspace vanilla-ember-v2-addon -- --no-watch.clearScreen",
+    "test": "npm test --workspace test-app",
+    "lint": "npm run lint --workspaces --if-present",
+    "lint:fix": "npm run lint:fix --workspaces --if-present"
+  },
+  "devDependencies": {
+    "concurrently": "^7.2.1",
+    "prettier": "^2.5.1"
+  },
+  "workspaces": [
+    "vanilla-ember-v2-addon",
+    "test-app"
+  ]
+}
